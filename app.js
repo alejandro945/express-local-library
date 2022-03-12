@@ -13,10 +13,12 @@ var app = express();
 app.set('views', path.join(__dirname, 'views'));
 app.set('view engine', 'pug');
 
+//Middleware library
 app.use(logger('dev'));
 app.use(express.json());
 app.use(express.urlencoded({ extended: false }));
 app.use(cookieParser());
+//Serve all the static files in the /public directory in the project root.
 app.use(express.static(path.join(__dirname, 'public')));
 
 app.use('/', indexRouter);
